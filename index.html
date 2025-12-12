@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>TradeView Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        /* Dark Theme (Default) */
+        --tv-bg: #131722;
+        --tv-pane: #1e222d;
+        --tv-border: #2a2e39;
+        --tv-text: #d1d4dc;
+        --tv-muted: #787b86;
+        --tv-accent: #2962ff;
+        --tv-green: #089981;
+        --tv-red: #f23645;
+      }
+
+      [data-theme='light'] {
+        /* Light Theme overrides */
+        --tv-bg: #ffffff;
+        --tv-pane: #f0f3fa; /* Slightly off-white for panels */
+        --tv-border: #e0e3eb;
+        --tv-text: #131722;
+        --tv-muted: #868993;
+        --tv-accent: #2962ff;
+        /* Keep green/red consistent or slightly adjusted if needed */
+      }
+
+      /* Custom Scrollbar for a desktop-app feel */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--tv-border);
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--tv-muted);
+      }
+      body {
+        background-color: var(--tv-bg);
+        color: var(--tv-text);
+        font-family: -apple-system, BlinkMacSystemFont, "Trebuchet MS", Roboto, Ubuntu, sans-serif;
+        overflow: hidden; /* App-like behavior */
+      }
+      
+      /* ApexCharts Overrides for Theming */
+      .apexcharts-tooltip {
+        background: var(--tv-pane) !important;
+        border-color: var(--tv-border) !important;
+        color: var(--tv-text) !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      }
+      .apexcharts-tooltip-title {
+        background: var(--tv-bg) !important;
+        border-bottom: 1px solid var(--tv-border) !important;
+        font-family: inherit !important;
+      }
+      .apexcharts-menu {
+        background: var(--tv-pane) !important;
+        border-color: var(--tv-border) !important;
+        color: var(--tv-text) !important;
+      }
+      .apexcharts-menu-item:hover {
+        background: var(--tv-border) !important;
+      }
+      .apexcharts-text {
+        fill: var(--tv-text) !important;
+      }
+      /* Grid lines in light mode need to be visible */
+      [data-theme='light'] .apexcharts-gridline {
+        stroke: #e0e3eb !important;
+      }
+
+      /* Tooltip visibility control for Tools to prevent ReactApexChart errors */
+      .tv-no-tooltip .apexcharts-tooltip {
+        display: none !important;
+      }
+      .tv-no-tooltip .apexcharts-xaxistooltip {
+        display: none !important;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              tv: {
+                bg: 'var(--tv-bg)',
+                pane: 'var(--tv-pane)',
+                border: 'var(--tv-border)',
+                text: 'var(--tv-text)',
+                muted: 'var(--tv-muted)',
+                accent: 'var(--tv-accent)',
+                green: 'var(--tv-green)',
+                red: 'var(--tv-red)'
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.1",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.1/client",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "apexcharts": "https://aistudiocdn.com/apexcharts@^3.49.0",
+    "react-apexcharts": "https://aistudiocdn.com/react-apexcharts@^1.4.1",
+    "prop-types": "https://aistudiocdn.com/prop-types@^15.8.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
